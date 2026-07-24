@@ -1,4 +1,4 @@
-﻿# CiviFlow
+# CiviFlow
 
 CiviFlow is an accountability-first municipal service platform with two verifiable intelligence layers:
 
@@ -20,6 +20,8 @@ CiviFlow is an accountability-first municipal service platform with two verifiab
 ## Production environment
 
 Set `GROQ_API_KEY`, `GROQ_MODEL`, `SOLANA_RPC_URL`, and `NEXT_PUBLIC_SOLANA_RPC_URL`. Browser signing uses Phantom or another injected Solana-compatible provider; private keys are never sent to CiviFlow.
+
+Verified production demo signature: `2oQjqt3bmw7PGjjEsguL6xpSPuY1P9PhHf3QZzvmD6R4VmqZ2Bs7kBVpKd32LBgPB1Sx1s2SjT15JuEdzbGc3eqF` on Solana devnet.
 
 ## Validation
 
