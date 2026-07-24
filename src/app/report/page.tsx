@@ -1,0 +1,1 @@
+import{ReportForm}from"@/components/portal";export default ReportForm;

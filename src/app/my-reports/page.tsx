@@ -1,0 +1,1 @@
+import{demoReports}from"@/lib/civiflow";import{Card}from"@/components/portal";export default function Page(){return <section className="page"><h1>My reports</h1><div className="grid">{demoReports.map(r=><Card r={r} key={r.id}/>)}</div></section>}

@@ -1,0 +1,1 @@
+import{Login}from"@/components/portal";export default Login;

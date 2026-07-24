@@ -1,0 +1,1 @@
+import{Dashboard}from"@/components/portal";export default Dashboard;

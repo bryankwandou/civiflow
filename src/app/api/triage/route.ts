@@ -1,0 +1,1 @@
+﻿import{NextResponse}from"next/server";import{triage}from"@/lib/civiflow";export async function POST(req:Request){const{description}=await req.json();if(!description||description.length<10)return NextResponse.json({error:"Description too short"},{status:400});return NextResponse.json(triage(description))}

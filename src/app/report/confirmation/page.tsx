@@ -1,0 +1,1 @@
+"use client";import{Suspense}from"react";import{Confirmation}from"@/components/portal";export default function Page(){return <Suspense><Confirmation/></Suspense>}

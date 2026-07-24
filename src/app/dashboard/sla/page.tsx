@@ -1,0 +1,1 @@
+import{SLA}from"@/components/portal";export default SLA;

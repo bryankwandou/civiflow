@@ -1,0 +1,1 @@
+import{PublicMap}from"@/components/portal";export default PublicMap;

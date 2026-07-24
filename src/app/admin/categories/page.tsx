@@ -1,0 +1,1 @@
+import{Admin}from"@/components/portal";export default function Page(){return <Admin kind="categories"/>}
