@@ -1,0 +1,3 @@
+﻿import{NextResponse}from"next/server";import{z}from"zod";import{runCivicAgent}from"@/lib/groq-agent";
+const Input=z.object({description:z.string().min(15).max(2000),address:z.string().max(300).optional()});
+export async function POST(req:Request){try{const input=Input.parse(await req.json());const decision=await runCivicAgent(input.description,input.address);return NextResponse.json({...decision,provider:"Groq",model:process.env.GROQ_MODEL||"llama-3.3-70b-versatile",generated_at:new Date().toISOString()})}catch(error){const message=error instanceof Error?error.message:"Agent failed";return NextResponse.json({error:message},{status:message.includes("configured")?503:422})}}

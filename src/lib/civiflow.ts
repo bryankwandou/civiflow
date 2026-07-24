@@ -1,4 +1,4 @@
-﻿export type Status="submitted"|"triaged"|"assigned"|"in_progress"|"resolved"|"closed";
+export type Status="submitted"|"triaged"|"assigned"|"in_progress"|"resolved"|"closed";
 export type History={status:Status;note:string;created_at:string;is_public:boolean};
 export type Report={id:string;description:string;category:string;department:string;priority:string;status:Status;address:string;created_at:string;sla_due_at:string;ai_confidence:number;history:History[]};
 export const categories=[{name:"Road and sidewalk",department:"Public Works",sla:48},{name:"Streetlight",department:"Transportation",sla:24},{name:"Illegal dumping",department:"Sanitation",sla:36},{name:"Tree hazard",department:"Parks and Forestry",sla:12},{name:"Graffiti",department:"Neighborhood Services",sla:72}];
@@ -9,5 +9,4 @@ export const demoReports:Report[]=[
 ];
 const globalStore=globalThis as typeof globalThis&{reports?:Report[]};
 export const reportStore=globalStore.reports??(globalStore.reports=[...demoReports]);
-export function triage(description:string){const t=description.toLowerCase();const m=/light|lamp/.test(t)?categories[1]:/trash|dump|waste/.test(t)?categories[2]:/tree|branch/.test(t)?categories[3]:/graffiti|paint|tag/.test(t)?categories[4]:categories[0];const confidence=description.length>45?.96:.82;return{category:m.name,department:m.department,sla_hours:m.sla,priority:/blocked|school|danger|fallen/.test(t)?"critical":"normal",confidence,rationale:`Matched to ${m.name.toLowerCase()} using the public service catalog.`}}
 export function remaining(date:string){const h=Math.round((new Date(date).getTime()-Date.now())/36e5);return h<0?`${-h}h overdue`:`${h}h remaining`}

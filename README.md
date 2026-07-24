@@ -1,25 +1,30 @@
 ﻿# CiviFlow
 
-CiviFlow is an accountability-first municipal service platform: explainable intake routing, confidence-gated automation, category SLA clocks, append-only public status history, duplicate-response guidance, public maps, staff operations, and auditable administration.
+CiviFlow is an accountability-first municipal service platform with two verifiable intelligence layers:
 
-## Workflows
+1. A real Groq municipal agent classifies incidents, explains routing, exposes confidence, raises safety flags, and sends uncertain decisions to manual review.
+2. A real Solana devnet proof flow connects an injected wallet, signs a versioned CiviFlow memo transaction, confirms it, and verifies the memo against devnet RPC.
 
-- `/report` resident intake and routing preview
+## Live workflows
+
+- `/report` Groq-powered resident intake and production report submission
+- `/agent` live AI Agent Lab with validated structured output
+- `/proof` wallet connect, devnet funding, signed memo proof, and verification
 - `/track/RPT-8F2A91` public noindex case timeline
 - `/map` privacy-aware public issue map
-- `/dashboard` department queue and operating metrics
-- `/dashboard/report/RPT-8F2A91` case action workbench
-- `/dashboard/sla` independent breach monitor
-- `/admin/categories`, `/admin/departments`, `/admin/users` configuration surfaces
-- `/api/reports`, `/api/reports/[id]`, `/api/triage`, `/api/sla/check` production-shaped contracts
+- `/dashboard` department operations, case workbench, duplicate insight, and SLA monitor
+- `/api/agent` real Groq structured decision endpoint
+- `/api/devnet/status` live Solana devnet health
+- `/api/devnet/verify?signature=...` on-chain CiviFlow memo verifier
 
-## Validate
+## Production environment
+
+Set `GROQ_API_KEY`, `GROQ_MODEL`, `SOLANA_RPC_URL`, and `NEXT_PUBLIC_SOLANA_RPC_URL`. Browser signing uses Phantom or another injected Solana-compatible provider; private keys are never sent to CiviFlow.
+
+## Validation
 
 ```bash
 npm run typecheck
-npm run lint
 npm run test:workflow
 npm run build
 ```
-
-The MVP uses an in-process persistence adapter so the full workflow runs without credentials. Environment keys in `.env.example` define the production Supabase, AI, map, and cron integration boundary.

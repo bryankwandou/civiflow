@@ -11,9 +11,13 @@
                     "test:workflow":  "node --test tests/workflow.test.mjs"
                 },
     "dependencies":  {
+                         "@solana/web3.js":  "^1.98.4",
+                         "buffer":  "^6.0.3",
+                         "framer-motion":  "^12.42.2",
                          "next":  "16.2.11",
                          "react":  "19.2.4",
-                         "react-dom":  "19.2.4"
+                         "react-dom":  "19.2.4",
+                         "zod":  "^4.4.3"
                      },
     "devDependencies":  {
                             "@tailwindcss/postcss":  "^4",
